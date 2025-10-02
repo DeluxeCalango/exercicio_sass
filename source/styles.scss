@@ -1,0 +1,237 @@
+@use 'config/reset';
+@use 'config/variaveis';
+@use 'sass:math';
+
+@mixin formElemento() {
+    padding: 8px;
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+@function pixelParaEm($alvoEmPixel, $contextoEmPixel: 16px) {
+    @return math.div($alvoEmPixel, $contextoEmPixel)+em;
+}
+
+body {
+    font-family: variaveis.$fontePrincipal;
+    background-color: variaveis.$corDeFundo;
+    color: variaveis.$corTercearia;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: variaveis.$corPrimaria;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+header img {
+    width: 120px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li:first-child {
+    margin-left: 0;
+}
+
+.menu li {
+    font-weight: bold;
+    margin-left: 24px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: variaveis.$corTercearia;
+}
+
+section {
+    padding: 56px 0;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(44, 52, 54, 0.05);
+    margin-bottom: 32px;
+}
+
+.navbar {
+    background-color: variaveis.$corSecundaria;
+}
+
+.navbar-brand {
+    height: 100px;
+    width: auto;
+    margin-left: 0;
+    padding: 0;
+}
+
+#cabecalho h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+#cabecalho .nav .nav-link {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+#cabecalho .nav .nav-link.active {
+    color: variaveis.$corTercearia;
+    text-decoration: none;
+    border-bottom: 2px solid variaveis.$corTercearia;
+    padding-bottom: 2px;
+    background-color: transparent;
+}
+
+#cabecalho .nav .nav-link:hover {
+    color: variaveis.$corTercearia;
+    text-decoration: none;
+    border-bottom: 2px solid variaveis.$corTercearia;
+    padding-bottom: 2px;
+    background-color: transparent;
+}
+
+.btn-verde-custom {
+    background-color: variaveis.$corPrimaria;
+    color: #fff;
+    border: 1px solid variaveis.$corPrimaria;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-verde-custom:hover {
+    background-color: variaveis.$corTercearia;
+    border-color: variaveis.$corTercearia;
+}
+
+.btn-pequeno {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.color-green {
+    color: variaveis.$corTercearia;
+}
+
+.inicio {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+    width: 100%;
+    justify-items: center;
+}
+
+.inicio-item {
+    text-align: center;
+    background-color: variaveis.$corSecundaria;
+    border-radius: 12px;
+    padding: 24px 16px;
+    box-shadow: 0 2px 8px rgba(44, 52, 54, 0.06);
+}
+
+.inicio-item img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.inicio-button {
+    display: block;
+    background-color: variaveis.$corPrimaria;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.inicio-button:hover {
+    background-color: variaveis.$corTercearia;
+}
+
+.product-button:hover {
+    background-color: variaveis.$corTercearia;
+}
+
+.nav-acessorios .nav-link {
+    color: variaveis.$corTercearia;
+    background-color: transparent;
+    border: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-acessorios .nav-link:hover {
+    color: variaveis.$corPrimaria;
+}
+
+.nav-acessorios .nav-link.active {
+    background-color: variaveis.$corTercearia;
+    color: #fff;
+}
+
+.text-green {
+    color: variaveis.$corTercearia;
+    transition: 0.3s ease;
+}
+
+.text-green:hover {
+    color: variaveis.$corPrimaria;
+    transform: scale(1.1);
+}
+
+#pincas img,
+#amortecedores img,
+#fluidos img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .inicio {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .inicio {
+        display: block;
+    }
+    .inicio-item {
+        margin-bottom: 32px;
+    }
+}
